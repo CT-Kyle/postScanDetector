@@ -2,7 +2,7 @@
 
 Runs on Python 2.7 using **dpkt**.
 
-Detects IP addresses that may be executing TCP SYN port scans.
+Detects IP addresses that may be executing TCP SYN port scans and "Christmas Tree" scans.
 
 ## In Detail
 
@@ -11,6 +11,10 @@ In a SYN scan, the scanner generates SYN packets to the various ports for a targ
 Typically, a much smaller number of hosts will actually respond with a SYN-ACK packet in comparison with the number of SYN packets sent out by the scanner. This program will detect that effect.
 
 Also see [this](https://en.wikipedia.org/wiki/Port_scanner#SYN_scanning) on SYN scans.
+
+This tool also detects a "Christmas Tree" scan which consists of FIN, PSH, and URG flags being set on a mass amount of packets sent within a short period of time.
+
+More detailed metrics are output including the range of ports scanned, the number of unique ports, and the time of the scan.
 
 # Usage
 
